@@ -1,21 +1,29 @@
 import React, { Component } from 'react';
-import { Button, StyleSheet } from 'react-native';
+import { TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { colors } from '../../styles';
 
 export default class MyButton extends Component {
   render() {
     const { title, onPress } = this.props;
     return (
-      <Button style={styles.base}
-        title={title}
-        onPress={onPress} />
+      <TouchableOpacity style={styles.base} onPress={onPress} >
+        <Text style={styles.text}>{title}</Text>
+      </TouchableOpacity>
     );
   }
 }
 
 const styles = StyleSheet.create({
   base: {
-    flex: 1,
+    margin: 10,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    backgroundColor: colors.SECONDARY,
+    width: '50%',
+    borderRadius: 100
+  },
+  text: {
+    margin: 10,
+    color: colors.WHITE
   }
 });
